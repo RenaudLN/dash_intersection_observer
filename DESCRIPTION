@@ -1,0 +1,13 @@
+Package: dashIntersectionObserver
+Title: Intersection Observer for Dash
+Version: 1.0.0
+Description: Intersection Observer for Dash
+Depends: R (>= 3.0.2)
+Imports: 
+Suggests: 
+License: MIT + file LICENSE
+URL: https://github.com/RenaudLN/dash-intersection-observer
+BugReports: https://github.com/RenaudLN/dash-intersection-observer/issues
+Encoding: UTF-8
+LazyData: true
+KeepSource: true

@@ -1,0 +1,97 @@
+{
+  "src/ts/components/DashIntersectionObserver.tsx": {
+    "displayName": "DashIntersectionObserver",
+    "description": "Component description",
+    "props": {
+      "children": {
+        "description": "",
+        "required": true,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      },
+      "threshold": {
+        "description": "Number between 0 and 1 indicating the percentage that should be visible before triggering.",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "delay": {
+        "description": "Minimum delay between notifications, in milliseconds",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "rootMargin": {
+        "description": "Margin around the root. Can have values similar to the CSS margin property.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "triggerOnce": {
+        "description": "Only trigger the inView callback once if true.",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "initialInView": {
+        "description": "Set the initial value of the inView boolean.",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "style": {
+        "description": "Style of the wrapping div.",
+        "required": false,
+        "type": {
+          "name": "any",
+          "raw": "any"
+        }
+      },
+      "className": {
+        "description": "CSS class of the wrapping div.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "inView": {
+        "description": "Whether the component is in the viewport (READONLY).",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, any>) => void"
+        }
+      }
+    },
+    "isContext": false
+  }
+}
