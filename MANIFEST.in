@@ -1,0 +1,2 @@
+recursive-include dash_intersection_observer/** *.js *.css *.json *.html
+prune tests
