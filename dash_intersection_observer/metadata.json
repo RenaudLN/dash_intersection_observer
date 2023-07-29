@@ -5,7 +5,7 @@
     "props": {
       "children": {
         "description": "",
-        "required": true,
+        "required": false,
         "type": {
           "name": "node",
           "raw": "ReactNode"
@@ -73,6 +73,14 @@
         "type": {
           "name": "bool",
           "raw": "boolean"
+        }
+      },
+      "inViewCount": {
+        "description": "Number of times the component has been in the viewport.",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
         }
       },
       "id": {

@@ -2,13 +2,14 @@ import random
 import time
 
 import plotly.express as px
-from dash import Input, Dash, Output, callback, dcc, html, no_update, MATCH
+from dash import Input, Dash, Output, callback, ctx, dcc, html, no_update, ALL, MATCH
 from dash_intersection_observer import DashIntersectionObserver
 
 app = Dash(__name__)
 
 app.layout = html.Div(
-    [
+    [html.Button("Reset", id="reset")]
+    + [
         html.Div(
             [
                 html.H3(f"Graph {i + 1}"),
@@ -23,7 +24,7 @@ app.layout = html.Div(
                 ),
             ]
         )
-        for i in range(20)
+        for i in range(5)
     ],
     style={"display": "grid", "gap": "1rem", "margin": "0 auto", "maxWidth": 800}
 )
@@ -42,6 +43,15 @@ def update_child(in_view):
         margin={"l": 0, "b": 0, "t": 0, "r": 0},
     )
     return dcc.Graph(figure=figure)
+
+
+@callback(
+    Output({"type": "observer", "index": ALL}, "inViewCount"),
+    Input("reset", "n_clicks"),
+    prevent_initial_call=True,
+)
+def reset_in_view(_):
+    return [0] * len(ctx.outputs_list)
 
 
 if __name__ == '__main__':

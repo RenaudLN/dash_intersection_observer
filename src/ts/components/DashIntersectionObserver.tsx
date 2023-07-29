@@ -3,7 +3,7 @@ import {DashComponentProps} from '../props';
 import {useInView} from "react-intersection-observer"
 
 type Props = {
-    children: React.ReactNode,
+    children?: React.ReactNode,
     /**
      * Number between 0 and 1 indicating the percentage that should be visible before triggering.
      */
@@ -36,6 +36,10 @@ type Props = {
      * Whether the component is in the viewport (READONLY).
      */
     inView?: boolean
+    /**
+     * Number of times the component has been in the viewport.
+     */
+    inViewCount?: number
 } & DashComponentProps;
 
 /**
@@ -43,13 +47,34 @@ type Props = {
  */
 const DashIntersectionObserver = (props: Props) => {
 
-    const { children, style, className, id, setProps, ...inViewProps } = props
+    const { children, style, className, id, setProps, triggerOnce, inViewCount, ...inViewProps } = props
+    const countFromIntersect = React.useRef(0)
+    const count = inViewCount || 0
 
     const { ref, inView } = useInView(inViewProps)
 
     React.useEffect(() => {
-        setProps({ inView })
-    }, [inView])
+        const newProps = {}
+        if (triggerOnce && count < 1) {
+            if (inView) {
+                newProps["inViewCount"] = count + 1
+                if (countFromIntersect.current === count) {
+                    newProps["inView"] = true
+                } else {
+                    newProps["inView"] = String(Math.random())
+                }
+                countFromIntersect.current = count + 1
+            } else {
+                newProps["inView"] = false
+            }
+        }
+        if (!triggerOnce) {
+            newProps["inView"] = inView
+        }
+        if (Object.keys(newProps).length > 0) {
+            setProps(newProps)
+        }
+    }, [inView, inViewCount])
 
     return (
         <div id={id} ref={ref} style={style} className={className}>

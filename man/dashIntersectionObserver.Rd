@@ -11,8 +11,9 @@ Component description
 
 \usage{
 dashIntersectionObserver(children=NULL, id=NULL, className=NULL, delay=NULL,
-inView=NULL, initialInView=NULL, rootMargin=NULL,
-style=NULL, threshold=NULL, triggerOnce=NULL)
+inView=NULL, inViewCount=NULL, initialInView=NULL,
+rootMargin=NULL, style=NULL, threshold=NULL,
+triggerOnce=NULL)
 }
 
 \arguments{
@@ -25,6 +26,8 @@ style=NULL, threshold=NULL, triggerOnce=NULL)
 \item{delay}{Numeric. Minimum delay between notifications, in milliseconds}
 
 \item{inView}{Logical. Whether the component is in the viewport (READONLY).}
+
+\item{inViewCount}{Numeric. Number of times the component has been in the viewport.}
 
 \item{initialInView}{Logical. Set the initial value of the inView boolean.}
 
