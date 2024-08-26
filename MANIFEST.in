@@ -1,2 +1,5 @@
 recursive-include dash_intersection_observer/** *.js *.css *.json *.html
 prune tests
+include README.md
+include LICENSE
+include package.json
